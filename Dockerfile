@@ -39,3 +39,4 @@ ADD country.html /var/www/mapit/mapit/mapit/templates/mapit/country.html
 RUN rm -rf /data
 
 # TODO: Make mapit handle areas with numeric names
+# TODO: Look for more authoritive sources for electoral boundaries, LGAs
