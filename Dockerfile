@@ -13,8 +13,8 @@ RUN sed 's/DEBUG: True/DEBUG: False/' /var/www/mapit/mapit/conf/general.yml > /v
 # causes problems
 RUN apt-get install -y unzip gdal-bin
 RUN mkdir /data
-ADD 1270055003_lga_2011_aust_shape.zip /data/1270055003_lga_2011_aust_shape.zip
-ADD 1270055003_ced_2011_aust_shape.zip /data/1270055003_ced_2011_aust_shape.zip
+ADD data/1270055003_lga_2011_aust_shape.zip /data/1270055003_lga_2011_aust_shape.zip
+ADD data/1270055003_ced_2011_aust_shape.zip /data/1270055003_ced_2011_aust_shape.zip
 RUN cd /data; unzip 1270055003_lga_2011_aust_shape.zip; rm 1270055003_lga_2011_aust_shape.zip
 RUN cd /data; unzip 1270055003_ced_2011_aust_shape.zip; rm 1270055003_ced_2011_aust_shape.zip
 # TODO do proper projection conversion using -s_srs "EPSG:28350" -t_srs "EPSG:4326"
