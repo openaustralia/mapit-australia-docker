@@ -5,3 +5,5 @@ INSERT INTO mapit_type (code, description) VALUES ('SED', 'State Electoral Divis
 INSERT INTO mapit_nametype (code, description) VALUES ('SED', 'State Electoral Division');
 INSERT INTO mapit_type (code, description) VALUES ('CED', 'Commonwealth Electoral Division');
 INSERT INTO mapit_nametype (code, description) VALUES ('CED', 'Commonwealth Electoral Division');
+INSERT INTO mapit_type (code, description) VALUES ('POA', 'Postal Area');
+INSERT INTO mapit_nametype (code, description) VALUES ('POA', 'Postal Area');

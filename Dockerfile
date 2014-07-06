@@ -16,10 +16,12 @@ ADD data /data
 RUN cd /data; unzip 1270055003_lga_2011_aust_shape.zip; rm 1270055003_lga_2011_aust_shape.zip
 RUN cd /data; unzip 1270055003_sed_2011_aust_shape.zip; rm 1270055003_sed_2011_aust_shape.zip
 RUN cd /data; unzip 1270055003_ced_2011_aust_shape.zip; rm 1270055003_ced_2011_aust_shape.zip
+RUN cd /data; unzip 1270055003_poa_2011_aust_shape.zip; rm 1270055003_poa_2011_aust_shape.zip
 # TODO do proper projection conversion using -s_srs "EPSG:28350" -t_srs "EPSG:4326"
 RUN ogr2ogr -f "KML" -dsco NameField=SED_NAME /data/SED_2011_AUST.kml /data/SED_2011_AUST.shp
 RUN ogr2ogr -f "KML" -dsco NameField=CED_NAME /data/CED_2011_AUST.kml /data/CED_2011_AUST.shp
 RUN ogr2ogr -f "KML" -dsco NameField=LGA_NAME11 /data/LGA_2011_AUST.kml /data/LGA_2011_AUST.shp
+RUN ogr2ogr -f "KML" -dsco NameField=POA_CODE /data/POA_2011_AUST.kml /data/POA_2011_AUST.shp
 
 ADD codes.sql /codes.sql
 RUN service postgresql start; cat /codes.sql | su -l -c "psql mapit" mapit
@@ -30,6 +32,7 @@ RUN service postgresql start; su -l -c "/var/www/mapit/mapit/manage.py mapit_gen
 RUN service postgresql start; su -l -c "/var/www/mapit/mapit/manage.py mapit_import --country_code AU --area_type_code SED --name_type_code SED --generation_id 1 --commit /data/SED_2011_AUST.kml" mapit
 RUN service postgresql start; su -l -c "/var/www/mapit/mapit/manage.py mapit_import --country_code AU --area_type_code CED --name_type_code CED --generation_id 1 --commit /data/CED_2011_AUST.kml" mapit
 RUN service postgresql start; su -l -c "/var/www/mapit/mapit/manage.py mapit_import --country_code AU --area_type_code LGA --name_type_code LGA --generation_id 1 --commit /data/LGA_2011_AUST.kml" mapit
+RUN service postgresql start; su -l -c "/var/www/mapit/mapit/manage.py mapit_import --country_code AU --area_type_code POA --name_type_code POA --generation_id 1 --commit /data/POA_2011_AUST.kml" mapit
 
 # TODO: Cleanup apt downloads
 # TODO: Cleanup temporary data files
