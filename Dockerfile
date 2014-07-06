@@ -3,13 +3,14 @@ MAINTAINER Matthew Landauer <matthew@oaf.org.au>
 
 # There are two alternate ways to add the data. The first is to download it locally using "make download"
 # and then insert the files here
-ADD data /data
+# ADD data /data
 # The second way is to insert the files directly.
-# ADD http://aec.gov.au/Electorates/gis/files/national-esri-16122011.zip data/national-esri-16122011.zip
-# ADD http://www.abs.gov.au/AUSSTATS/subscriber.nsf/log?openagent&1270055003_poa_2011_aust_shape.zip&1270.0.55.003&Data%20Cubes&71B4572D909B934ECA2578D40012FE0D&0&July%202011&22.07.2011&Previous data/1270055003_poa_2011_aust_shape.zip
-# ADD http://www.abs.gov.au/AUSSTATS/subscriber.nsf/log?openagent&1270055003_sed_2011_aust_shape.zip&1270.0.55.003&Data%20Cubes&1F692001AC7E460DCA2578D40013567C&0&July%202011&22.07.2011&Previous data/1270055003_sed_2011_aust_shape.zip
-# ADD http://www.abs.gov.au/AUSSTATS/subscriber.nsf/log?openagent&1270055003_lga_2011_aust_shape.zip&1270.0.55.003&Data%20Cubes&4A320EE17A293459CA257937000CC967&0&July%202011&31.10.2011&Previous data/1270055003_lga_2011_aust_shape.zip
-# ADD http://www.abs.gov.au/AUSSTATS/subscriber.nsf/log?openagent&1270055003_ced_2011_aust_shape.zip&1270.0.55.003&Data%20Cubes&AFFAF0F44528F2EFCA2578D40013CA06&0&July%202011&22.07.2011&Previous data/1270055003_ced_2011_aust_shape.zip
+ADD http://www.abs.gov.au/ausstats/subscriber.nsf/log?openagent&1259030001_ste11aaust_midmif.zip&1259.0.30.001&Data%20Cubes&6E45E3029A27FFEFCA2578CC0012083E&0&July%202011&14.07.2011&Latest data/1259030001_ste11aaust_midmif.zip
+ADD http://aec.gov.au/Electorates/gis/files/national-esri-16122011.zip data/national-esri-16122011.zip
+ADD http://www.abs.gov.au/AUSSTATS/subscriber.nsf/log?openagent&1270055003_poa_2011_aust_shape.zip&1270.0.55.003&Data%20Cubes&71B4572D909B934ECA2578D40012FE0D&0&July%202011&22.07.2011&Previous data/1270055003_poa_2011_aust_shape.zip
+ADD http://www.abs.gov.au/AUSSTATS/subscriber.nsf/log?openagent&1270055003_sed_2011_aust_shape.zip&1270.0.55.003&Data%20Cubes&1F692001AC7E460DCA2578D40013567C&0&July%202011&22.07.2011&Previous data/1270055003_sed_2011_aust_shape.zip
+ADD http://www.abs.gov.au/AUSSTATS/subscriber.nsf/log?openagent&1270055003_lga_2011_aust_shape.zip&1270.0.55.003&Data%20Cubes&4A320EE17A293459CA257937000CC967&0&July%202011&31.10.2011&Previous data/1270055003_lga_2011_aust_shape.zip
+ADD http://www.abs.gov.au/AUSSTATS/subscriber.nsf/log?openagent&1270055003_ced_2011_aust_shape.zip&1270.0.55.003&Data%20Cubes&AFFAF0F44528F2EFCA2578D40013CA06&0&July%202011&22.07.2011&Previous data/1270055003_ced_2011_aust_shape.zip
 # The first way is great during development as the step will get cached.
 # The second way is great for building on Docker Hub
 
