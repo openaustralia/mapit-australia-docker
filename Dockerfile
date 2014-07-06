@@ -14,18 +14,13 @@ RUN pip install Shapely
 RUN echo "standard_conforming_strings = off" >> /etc/postgresql/9.1/main/postgresql.conf
 
 RUN service postgresql start; echo "INSERT INTO mapit_country (code, name) VALUES ('AU', 'Australia');" | su -l -c "psql mapit" mapit
-
 RUN service postgresql start; echo "INSERT INTO mapit_type (code, description) VALUES ('LGA', 'Local Government Area');" | su -l -c "psql mapit" mapit
 RUN service postgresql start; echo "INSERT INTO mapit_nametype (code, description) VALUES ('LGA', 'Local Government Area');" | su -l -c "psql mapit" mapit
-
 RUN service postgresql start; echo "INSERT INTO mapit_type (code, description) VALUES ('CED', 'Commonwealth Electoral Division');" | su -l -c "psql mapit" mapit
 RUN service postgresql start; echo "INSERT INTO mapit_nametype (code, description) VALUES ('CED', 'Commonwealth Electoral Division');" | su -l -c "psql mapit" mapit
 
-#RUN service postgresql start; su -l -c "/var/www/mapit/mapit/manage.py mapit_import --country_code AU --area_type_code LGA --name_type_code LGA --generation_id 1 --name_field LGA_NAME11 --encoding ISO-8859-1 --commit /data/LGA_2011_AUST.shp" mapit
-#RUN service postgresql start; su -l -c "/var/www/mapit/mapit/manage.py mapit_import --country_code AU --area_type_code CED --name_type_code CED --generation_id 1 --name_field CED_NAME --encoding ISO-8859-1 --fix_invalid_polygons --commit /data/CED_2011_AUST.shp" mapit
-
 RUN apt-get install -y gdal-bin
-#RUN ogr2ogr -f "KML" -s_srs "EPSG:28350" -t_srs "EPSG:4326" -dsco NameField=CED_NAME /data/CED_2011_AUST.kml /data/CED_2011_AUST.shp
+# TODO do proper projection conversion using -s_srs "EPSG:28350" -t_srs "EPSG:4326"
 RUN ogr2ogr -f "KML" -dsco NameField=CED_NAME /data/CED_2011_AUST.kml /data/CED_2011_AUST.shp
 
 # Turn debug off so we don't run out of memory during imports
