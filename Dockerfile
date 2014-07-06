@@ -25,8 +25,11 @@ RUN service postgresql start; echo "INSERT INTO mapit_nametype (code, descriptio
 #RUN service postgresql start; su -l -c "/var/www/mapit/mapit/manage.py mapit_import --country_code AU --area_type_code CED --name_type_code CED --generation_id 1 --name_field CED_NAME --encoding ISO-8859-1 --fix_invalid_polygons --commit /data/CED_2011_AUST.shp" mapit
 
 RUN apt-get install -y gdal-bin
-RUN ogr2ogr -f "KML" -s_srs "EPSG:28350" -t_srs "EPSG:4326" -dsco NameField=CED_NAME /data/CED_2011_AUST.kml /data/CED_2011_AUST.shp
+#RUN ogr2ogr -f "KML" -s_srs "EPSG:28350" -t_srs "EPSG:4326" -dsco NameField=CED_NAME /data/CED_2011_AUST.kml /data/CED_2011_AUST.shp
+RUN ogr2ogr -f "KML" -dsco NameField=CED_NAME /data/CED_2011_AUST.kml /data/CED_2011_AUST.shp
 
 # Turn debug off so we don't run out of memory during imports
 RUN sed 's/DEBUG: True/DEBUG: False/' /var/www/mapit/mapit/conf/general.yml > /var/www/mapit/mapit/conf/general2.yml; mv /var/www/mapit/mapit/conf/general2.yml /var/www/mapit/mapit/conf/general.yml
 RUN service postgresql start; su -l -c "/var/www/mapit/mapit/manage.py mapit_import --country_code AU --area_type_code CED --name_type_code CED --generation_id 1 --commit /data/CED_2011_AUST.kml" mapit
+
+RUN service postgresql start; su -l -c "/var/www/mapit/mapit/manage.py mapit_generation_activate --commit" mapit
