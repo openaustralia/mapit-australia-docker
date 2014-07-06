@@ -33,6 +33,9 @@ RUN service postgresql start; su -l -c "/var/www/mapit/mapit/manage.py mapit_imp
 RUN service postgresql start; su -l -c "/var/www/mapit/mapit/manage.py mapit_import --country_code AU --area_type_code LGA --name_type_code LGA --generation_id 1 --commit /data/LGA_2011_AUST.kml" mapit
 RUN service postgresql start; su -l -c "/var/www/mapit/mapit/manage.py mapit_import --country_code AU --area_type_code POA --name_type_code POA --generation_id 1 --commit /data/POA_2011_AUST.kml" mapit
 
+ADD copyright.html /var/www/mapit/mapit/mapit/templates/mapit/copyright.html
+ADD country.html /var/www/mapit/mapit/mapit/templates/mapit/country.html
+
 RUN rm -rf /data
 
 # TODO: Make mapit handle areas with numeric names
