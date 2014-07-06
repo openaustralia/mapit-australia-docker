@@ -1,10 +1,6 @@
 FROM openaustralia/mapit
 MAINTAINER Matthew Landauer <matthew@oaf.org.au>
 
-# Takes boundary data as shapefiles and converts to kml. Need to do this as loading into mapit as shapefile
-# causes problems
-RUN apt-get install -y unzip gdal-bin
-
 # There are two alternate ways to add the data. The first is to download it locally using "make download"
 # and then insert the files here
 #ADD data /data
