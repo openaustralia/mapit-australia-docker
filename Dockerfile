@@ -36,3 +36,4 @@ RUN service postgresql start; su -l -c "/var/www/mapit/mapit/manage.py mapit_imp
 
 # TODO: Cleanup apt downloads
 # TODO: Cleanup temporary data files
+# TODO: Make mapit handle areas with numeric names
