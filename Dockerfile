@@ -13,11 +13,8 @@ RUN pip install Shapely
 # See this: https://code.djangoproject.com/ticket/16778
 RUN echo "standard_conforming_strings = off" >> /etc/postgresql/9.1/main/postgresql.conf
 
-RUN service postgresql start; echo "INSERT INTO mapit_country (code, name) VALUES ('AU', 'Australia');" | su -l -c "psql mapit" mapit
-RUN service postgresql start; echo "INSERT INTO mapit_type (code, description) VALUES ('LGA', 'Local Government Area');" | su -l -c "psql mapit" mapit
-RUN service postgresql start; echo "INSERT INTO mapit_nametype (code, description) VALUES ('LGA', 'Local Government Area');" | su -l -c "psql mapit" mapit
-RUN service postgresql start; echo "INSERT INTO mapit_type (code, description) VALUES ('CED', 'Commonwealth Electoral Division');" | su -l -c "psql mapit" mapit
-RUN service postgresql start; echo "INSERT INTO mapit_nametype (code, description) VALUES ('CED', 'Commonwealth Electoral Division');" | su -l -c "psql mapit" mapit
+ADD codes.sql /codes.sql
+RUN service postgresql start; cat /codes.sql | su -l -c "psql mapit" mapit
 
 RUN apt-get install -y gdal-bin
 # TODO do proper projection conversion using -s_srs "EPSG:28350" -t_srs "EPSG:4326"
