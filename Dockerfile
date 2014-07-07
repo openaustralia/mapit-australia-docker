@@ -47,5 +47,11 @@ ADD country.html /var/www/mapit/mapit/mapit/templates/mapit/country.html
 # TODO: Make mapit handle areas with numeric names
 # TODO: Look for more authoritive sources for electoral boundaries, LGAs
 # TODO: Include Aborginal Areas
-# TODO: Include States & Territories, Suburbs
+# TODO: Include Suburbs
 # TODO: Include Council Wards?
+# Victorian Council Ward & State Electoral Division Boundaries: https://www.vec.vic.gov.au/publications/publications-maps.html
+# South Australian LGAs: http://dpti.sa.gov.au/open_data_portal
+
+RUN cd /data; unzip 1259030001_ste11aaust_shape.zip; rm 1259030001_ste11aaust_shape.zip
+RUN ogr2ogr -f "KML" -dsco NameField=STATE_NAME /data/STE11aAust.kml /data/STE11aAust.shp
+RUN service postgresql start; su -l -c "/var/www/mapit/mapit/manage.py mapit_import --country_code AU --area_type_code STE --name_type_code STE --generation_id 1 --commit /data/STE11aAust.kml" mapit

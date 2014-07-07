@@ -7,3 +7,5 @@ INSERT INTO mapit_type (code, description) VALUES ('CED', 'Commonwealth Electora
 INSERT INTO mapit_nametype (code, description) VALUES ('CED', 'Commonwealth Electoral Division');
 INSERT INTO mapit_type (code, description) VALUES ('POA', 'Postal Area');
 INSERT INTO mapit_nametype (code, description) VALUES ('POA', 'Postal Area');
+INSERT INTO mapit_type (code, description) VALUES ('STE', 'State and Territories');
+INSERT INTO mapit_nametype (code, description) VALUES ('STE', 'State and Territories');
