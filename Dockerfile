@@ -3,7 +3,12 @@ MAINTAINER Matthew Landauer <matthew@oaf.org.au>
 
 # There are two alternate ways to add the data. The first is to download it locally using "make download"
 # and then insert the files here
-# ADD data /data
+# ADD data/STE11aAust.zip data/STE11aAust.zip
+# ADD data/COM20111216_ELB_region.zip data/COM20111216_ELB_region.zip
+# ADD data/POA_2011_AUST.zip data/POA_2011_AUST.zip
+# ADD data/SED_2011_AUST.zip data/SED_2011_AUST.zip
+# ADD data/LGA_2011_AUST.zip data/LGA_2011_AUST.zip
+# ADD data/CED_2011_AUST.zip data/CED_2011_AUST.zip
 # The second way is to insert the files directly.
 ADD http://www.abs.gov.au/ausstats/subscriber.nsf/log?openagent&1259030001_ste11aaust_shape.zip&1259.0.30.001&Data%20Cubes&D39E28B23F39F498CA2578CC00120E25&0&July%202011&14.07.2011&Latest data/STE11aAust.zip
 ADD http://aec.gov.au/Electorates/gis/files/national-esri-16122011.zip data/COM20111216_ELB_region.zip
