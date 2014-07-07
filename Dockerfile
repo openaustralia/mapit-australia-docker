@@ -43,9 +43,12 @@ ADD country.html /var/www/mapit/mapit/mapit/templates/mapit/country.html
 RUN rm -rf /data
 
 # TODO: Make mapit handle areas with numeric names
-# TODO: Look for more authoritive sources for electoral boundaries, LGAs
+# TODO: Look for more authoritive sources for state electoral boundaries
+# TODO: Look for more authoritive sources for state electoral LGAs
 # TODO: Include Aborginal Areas
 # TODO: Include Suburbs
 # TODO: Include Council Wards?
+# TODO: Update LGAs with 2013 data
+#
 # Victorian Council Ward & State Electoral Division Boundaries: https://www.vec.vic.gov.au/publications/publications-maps.html
 # South Australian LGAs: http://dpti.sa.gov.au/open_data_portal
