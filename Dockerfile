@@ -46,5 +46,6 @@ ADD country.html /var/www/mapit/mapit/mapit/templates/mapit/country.html
 
 # TODO: Make mapit handle areas with numeric names
 # TODO: Look for more authoritive sources for electoral boundaries, LGAs
+# TODO: Include Aborginal Areas
 # TODO: Include States & Territories, Suburbs
 # TODO: Include Council Wards?
