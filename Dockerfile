@@ -14,8 +14,7 @@ ADD http://www.abs.gov.au/AUSSTATS/subscriber.nsf/log?openagent&1270055003_ced_2
 # The first way is great during development as the step will get cached.
 # The second way is great for building on Docker Hub
 
-ADD codes.sql /codes.sql
-RUN service postgresql start; cat /codes.sql | su -l -c "psql mapit" mapit
+RUN service postgresql start; echo "INSERT INTO mapit_country (code, name) VALUES ('AU', 'Australia');" | su -l -c "psql mapit" mapit
 
 RUN service postgresql start; su -l -c "/var/www/mapit/mapit/manage.py mapit_generation_create --desc='Initial import' --commit" mapit
 RUN service postgresql start; su -l -c "/var/www/mapit/mapit/manage.py mapit_generation_activate --commit" mapit
@@ -23,12 +22,12 @@ RUN service postgresql start; su -l -c "/var/www/mapit/mapit/manage.py mapit_gen
 ADD import.sh /import.sh
 RUN chmod +x /import.sh
 
-RUN /import.sh LGA_2011_AUST LGA LGA_NAME11
-RUN /import.sh SED_2011_AUST SED SED_NAME
-RUN /import.sh POA_2011_AUST POA POA_CODE
-RUN /import.sh COM20111216_ELB_region CED ELECT_DIV
-#RUN /import.sh CED_2011_AUST CED CED_NAME
-RUN /import.sh STE11aAust STE STATE_NAME
+RUN /import.sh LGA_2011_AUST LGA 'Local Government Area' LGA_NAME11
+RUN /import.sh SED_2011_AUST SED 'State Electoral Division' SED_NAME
+RUN /import.sh POA_2011_AUST POA 'Postal Area' POA_CODE
+RUN /import.sh COM20111216_ELB_region CED 'Commonwealth Electoral Division' ELECT_DIV
+#RUN /import.sh CED_2011_AUST CED 'Commonwealth Electoral Division' CED_NAME
+RUN /import.sh STE11aAust STE 'State and Territories' STATE_NAME
 
 ADD copyright.html /var/www/mapit/mapit/mapit/templates/mapit/copyright.html
 ADD country.html /var/www/mapit/mapit/mapit/templates/mapit/country.html
