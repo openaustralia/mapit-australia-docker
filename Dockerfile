@@ -9,7 +9,9 @@ MAINTAINER Matthew Landauer <matthew@oaf.org.au>
 # ADD data/SED_2011_AUST.zip data/SED_2011_AUST.zip
 # ADD data/LGA_2011_AUST.zip data/LGA_2011_AUST.zip
 # ADD data/CED_2011_AUST.zip data/CED_2011_AUST.zip
+# ADD data/SSC_2011_AUST.zip data/SSC_2011_AUST.zip
 # The second way is to insert the files directly.
+ADD http://www.abs.gov.au/AUSSTATS/subscriber.nsf/log?openagent&1270055003_ssc_2011_aust_shape.zip&1270.0.55.003&Data%20Cubes&D68DFFC14D31F4E1CA2578D40013268D&0&July%202011&22.07.2011&Previous data/SSC_2011_AUST.zip
 ADD http://www.abs.gov.au/ausstats/subscriber.nsf/log?openagent&1259030001_ste11aaust_shape.zip&1259.0.30.001&Data%20Cubes&D39E28B23F39F498CA2578CC00120E25&0&July%202011&14.07.2011&Latest data/STE11aAust.zip
 ADD http://aec.gov.au/Electorates/gis/files/national-esri-16122011.zip data/COM20111216_ELB_region.zip
 ADD http://www.abs.gov.au/AUSSTATS/subscriber.nsf/log?openagent&1270055003_poa_2011_aust_shape.zip&1270.0.55.003&Data%20Cubes&71B4572D909B934ECA2578D40012FE0D&0&July%202011&22.07.2011&Previous data/POA_2011_AUST.zip
@@ -33,6 +35,7 @@ RUN /import.sh POA_2011_AUST POA 'Postal Area' POA_CODE
 RUN /import.sh COM20111216_ELB_region CED 'Commonwealth Electoral Division' ELECT_DIV
 #RUN /import.sh CED_2011_AUST CED 'Commonwealth Electoral Division' CED_NAME
 RUN /import.sh STE11aAust STE 'State and Territories' STATE_NAME
+RUN /import.sh SSC_2011_AUST SSC 'Suburb' SSC_NAME
 
 ADD copyright.html /var/www/mapit/mapit/mapit/templates/mapit/copyright.html
 ADD country.html /var/www/mapit/mapit/mapit/templates/mapit/country.html
