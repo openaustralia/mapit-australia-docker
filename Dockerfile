@@ -29,9 +29,12 @@ RUN service postgresql start; su -l -c "/var/www/mapit/mapit/manage.py mapit_gen
 ADD import.sh /import.sh
 RUN chmod +x /import.sh
 
+ADD import2.sh /import2.sh
+RUN chmod +x /import2.sh
+
+RUN /import2.sh POA_2011_AUST POA 'Postal Area' POA_CODE
 RUN /import.sh LGA_2011_AUST LGA 'Local Government Area' LGA_NAME11
 RUN /import.sh SED_2011_AUST SED 'State Electoral Division' SED_NAME
-RUN /import.sh POA_2011_AUST POA 'Postal Area' POA_CODE
 RUN /import.sh COM20111216_ELB_region CED 'Commonwealth Electoral Division' ELECT_DIV
 #RUN /import.sh CED_2011_AUST CED 'Commonwealth Electoral Division' CED_NAME
 RUN /import.sh STE11aAust STE 'State and Territories' STATE_NAME
