@@ -4,7 +4,7 @@
 ### How to run this
 
 You actually don't need this repository to try it out. The docker image built from this is
-automatically available from the [Docker Hub](https://hub.docker.com/).
+automatically available from the [Docker Hub](https://registry.hub.docker.com/u/openaustralia/mapit-australia/).
 
 First, you'll need to install [Docker](https://docs.docker.com/) if you don't already have it.
 
